@@ -1,13 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ObjectBehavior : MonoBehaviour {
 
-	// Use this for initialization
+	//variaveis globais
 	public Text msg;
 	public Text score;
-	private int acertos; //numero maximo de acertos 3
+	private int acertos;
 	private int erros;
 
 	void Start () {
@@ -15,13 +16,32 @@ public class ObjectBehavior : MonoBehaviour {
 		acertos = 0;
 		erros = 0;
 		msg.gameObject.SetActive (false);
+		PlayerPrefs.SetInt ("Acertos", 0);
 
 	}
-	
-	// Update is called once per frame
+
 	void Update () {
 
-		score.text = "Acertos: " + acertos;
+		//Debug.Log ("Erros: " + erros);
+		//Debug.Log ("Acertos: " + acertos); //numero maximo a quantidade de formatos
+
+		if (erros == 5) {  //quantidade de erros para pular de fase
+
+			Debug.Log ("Situacao Negativa");
+
+			//carregar proximo nivel, nesta situacao a fase nao foi positiva
+			SceneManager.LoadScene("Level2");
+
+		} else if (erros == 0) {  //melhor caso, podemos pressupor que a criança, para este cenario, nao tem autismo
+
+			Debug.Log ("Situacao Positiva");
+
+		} else if (erros != 0) { //tem erros mas nao o suficiente para mudar de fase
+
+			Debug.Log ("Situacao Media");
+		}
+
+		score.text = "Acertos: " + PlayerPrefs.GetInt ("Acertos").ToString();
 	
 	}
 
@@ -30,7 +50,8 @@ public class ObjectBehavior : MonoBehaviour {
 		if (gameObject.name == "quadrado" && col.gameObject.name == "quadradoBuraco") {
 			
 			acertos++;
-			transform.position = new Vector3(4.62f, -2.18f, 0);
+
+			score.text = "Acertos: " + acertos;
 			msg.gameObject.SetActive (true);
 			msg.text = "Você Acertou, Parabéns!";
 			yield return new WaitForSeconds(3);
@@ -41,7 +62,7 @@ public class ObjectBehavior : MonoBehaviour {
 		if (gameObject.name == "triangulo" && col.gameObject.name == "trianguloBuraco") {
 
 			acertos++;
-			transform.position = new Vector3(2.47f, 1.56f, 0);
+		
 			msg.gameObject.SetActive (true);
 			msg.text = "Você Acertou, Parabéns!";
 			yield return new WaitForSeconds(3);
@@ -51,7 +72,7 @@ public class ObjectBehavior : MonoBehaviour {
 		if (gameObject.name == "circulo" && col.gameObject.name == "circuloBuraco") {
 
 			acertos++;
-			transform.position = new Vector3(5.14f, 3.38f, 0);
+
 			msg.gameObject.SetActive (true);
 			msg.text = "Você Acertou, Parabéns!";
 			yield return new WaitForSeconds(3);
@@ -84,6 +105,6 @@ public class ObjectBehavior : MonoBehaviour {
 			yield return new WaitForSeconds(3);
 			msg.gameObject.SetActive (false);
 		}
-			
+
 	}
 }
