@@ -9,7 +9,7 @@ public class MoveTouch : MonoBehaviour {
 
 	void Start () {
 	
-		speed = 0.10f;
+		speed = 0.05f;
 		verifica = false;
 	}
 	

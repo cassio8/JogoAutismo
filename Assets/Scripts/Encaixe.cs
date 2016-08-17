@@ -21,21 +21,21 @@ public class Encaixe : MonoBehaviour {
 		if (gameObject.name == "quadradoBuraco" && col.gameObject.name == "quadrado") {
 
 			anim.SetBool ("Alocar", true);
-			col.gameObject.SetActive (false);
+			//col.gameObject.SetActive (false);
 
 		}
 
 		if (gameObject.name == "circuloBuraco" && col.gameObject.name == "circulo") {
 
 			anim.SetBool ("Alocar", true);
-			col.gameObject.SetActive (false);
+			//col.gameObject.SetActive (false);
 
 		}
 
 		if (gameObject.name == "trianguloBuraco" && col.gameObject.name == "triangulo") {
 
 			anim.SetBool ("Alocar", true);
-			col.gameObject.SetActive (false);
+			//col.gameObject.SetActive (false);
 
 		}
 
