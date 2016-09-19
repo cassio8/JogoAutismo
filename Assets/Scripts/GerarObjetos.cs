@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class GerarObjetos : MonoBehaviour {
 
@@ -16,7 +17,6 @@ public class GerarObjetos : MonoBehaviour {
 		yield return new WaitForSeconds(5);
 		anim.SetBool ("TrocarCubo", true);
 		c = 1;
-		Debug.Log("Entrou !");
 		yield return new WaitForSeconds(5);
 		anim.SetBool ("TrocarUrso", true);
 		c = 2;
@@ -29,6 +29,7 @@ public class GerarObjetos : MonoBehaviour {
 		yield return new WaitForSeconds(5);
 
 		//outra cena
+		SceneManager.LoadScene("Fim");
 	
 	}
 	
