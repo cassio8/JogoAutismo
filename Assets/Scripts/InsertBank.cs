@@ -54,6 +54,8 @@ public class InsertBank : MonoBehaviour  {
 		MySqlCommand comandoInserirResultado = _conexao.CreateCommand();
 		comandoInserirResultado.CommandText = "INSERT INTO resultado (cod_resultado, cod_paciente, erros, omissoes, tempo_resposta) VALUES ('','"+comandoInserir.LastInsertedId+"', '"+ erros +"', '"+ omissoes +"', '"+ tempoResposta +"')";
 		MySqlDataReader inserirResultado = comandoInserirResultado.ExecuteReader();
+
+		Debug.Log ("Inserido no banco com sucesso!");
 	}
 		
 

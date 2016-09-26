@@ -8,7 +8,17 @@ public class GerarObjetos : MonoBehaviour {
 	private Animator anim;
 	private int c;  //verifica em qual animação foi clicado
 
+	public AudioClip urso;
+	public AudioClip carrinho;
+	public AudioClip controle;
+	public AudioClip videogame;
+	public AudioClip cubo;
+
+	private AudioSource audio;
+
 	IEnumerator Start () {
+
+		audio = GetComponent<AudioSource> ();
 
 		anim = GetComponent<Animator> ();
 
@@ -42,28 +52,40 @@ public class GerarObjetos : MonoBehaviour {
 
 		//Debug.Log ("Clicou!");
 
-		if (gameObject.name == "controle") {
+		if (c == 0) {
 			Debug.Log ("Controle");
+
+			audio.clip = controle;
+			audio.Play ();
 		}
 
-		if (gameObject.name == "pelucia") {
+		if (c == 1) {
+			Debug.Log ("cubo");
+
+			audio.clip = cubo;
+			audio.Play ();
+		}
+
+		if (c == 2) {
 			Debug.Log ("urso");
+
+			audio.clip = urso;
+			audio.Play ();
 		}
 
-		if (gameObject.name == "cubo") {
-			Debug.Log ("Cubo");
-		}
-
-		if (gameObject.name == "toy1") {
+		if (c == 3) {
 			Debug.Log ("Carro1");
+
+			audio.clip = carrinho;
+			audio.Play ();
 		}
 
-		if (gameObject.name == "toy2") {
-			Debug.Log ("Carro2");
-		}
+		if (c == 4) {
+			Debug.Log ("VideoGame");
 
-		if (gameObject.name == "videogame") {
-			Debug.Log ("Videogame");
+			audio.clip = videogame;
+			audio.Play ();
 		}
+			
 	}
 }

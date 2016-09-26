@@ -21,6 +21,7 @@ public class Button : MonoBehaviour {
 	public void jogar()  {
 
 		Debug.Log (name.text);
+		Handheld.Vibrate();
 
 		ControlBank.setNome (name.text);
 

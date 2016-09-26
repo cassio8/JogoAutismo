@@ -9,9 +9,15 @@ public class ObjectBehavior : MonoBehaviour {
 	public Text msg;
 	public Text score;
 
+	public AudioClip positivo;
+	public AudioClip negativo;
+	private AudioSource audio;
+
 	void Start () {
 
 		msg.gameObject.SetActive (false);
+
+		audio = GetComponent<AudioSource> ();
 
 	}
 
@@ -38,7 +44,7 @@ public class ObjectBehavior : MonoBehaviour {
 			SceneManager.LoadScene("Level2");
 		}
 
-		Score.Print ();
+		//Score.Print ();
 	
 	}
 
@@ -51,6 +57,11 @@ public class ObjectBehavior : MonoBehaviour {
 		
 			msg.gameObject.SetActive (true);
 			msg.alignment = TextAnchor.MiddleCenter;
+			Handheld.Vibrate();
+
+			audio.clip = positivo;
+			audio.Play ();
+
 			msg.text = "Você Acertou, Parabéns!";
 			yield return new WaitForSeconds(3);
 			msg.gameObject.SetActive (false);
@@ -64,6 +75,11 @@ public class ObjectBehavior : MonoBehaviour {
 
 			msg.gameObject.SetActive (true);
 			msg.alignment = TextAnchor.MiddleCenter;
+			Handheld.Vibrate();
+
+			audio.clip = positivo;
+			audio.Play ();
+
 			msg.text = "Você Acertou, Parabéns!";
 			yield return new WaitForSeconds(3);
 			msg.gameObject.SetActive (false);
@@ -76,6 +92,11 @@ public class ObjectBehavior : MonoBehaviour {
 	
 			msg.gameObject.SetActive (true);
 			msg.alignment = TextAnchor.MiddleCenter;
+			Handheld.Vibrate();
+
+			audio.clip = positivo;
+			audio.Play ();
+
 			msg.text = "Você Acertou, Parabéns!";
 			yield return new WaitForSeconds(3);
 			msg.gameObject.SetActive (false);
@@ -86,6 +107,10 @@ public class ObjectBehavior : MonoBehaviour {
 			Score.incrementErros();
 			msg.gameObject.SetActive (true);
 			msg.alignment = TextAnchor.MiddleCenter;
+
+			audio.clip = negativo;
+			audio.Play ();
+
 			msg.text = "Tenho certeza que na próxima você irá melhor";
 			yield return new WaitForSeconds(3);
 			msg.gameObject.SetActive (false);
@@ -96,6 +121,10 @@ public class ObjectBehavior : MonoBehaviour {
 			Score.incrementErros();
 			msg.gameObject.SetActive (true);
 			msg.alignment = TextAnchor.MiddleCenter;
+
+			audio.clip = negativo;
+			audio.Play ();
+
 			msg.text = "Tenho certeza que na próxima você irá melhor";
 			yield return new WaitForSeconds(3);
 			msg.gameObject.SetActive (false);
@@ -106,6 +135,10 @@ public class ObjectBehavior : MonoBehaviour {
 			Score.incrementErros();
 			msg.gameObject.SetActive (true);
 			msg.alignment = TextAnchor.MiddleCenter;
+
+			audio.clip = negativo;
+			audio.Play ();
+
 			msg.text = "Tenho certeza que na próxima você irá melhor";
 			yield return new WaitForSeconds(3);
 			msg.gameObject.SetActive (false);
