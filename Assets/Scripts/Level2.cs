@@ -23,7 +23,7 @@ public class Level2 : MonoBehaviour {
 		yield return new WaitForSeconds(15); //tela que aparece todos os objetos
 		gerador.SetActive (true);
 		gameObject.SetActive(false);
-
+		EstadosBanco.setEstado (4);
 	}
 	
 	// Update is called once per frame

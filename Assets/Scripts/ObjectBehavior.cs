@@ -19,39 +19,46 @@ public class ObjectBehavior : MonoBehaviour {
 
 		audio = GetComponent<AudioSource> ();
 
+		EstadosBanco.setEstado (0);
+
 	}
 
 	void Update () {
 
-	
 		if (Score.getErros() == 5) {  //quantidade de erros para pular de fase
 
-			Debug.Log ("Situacao Negativa");
+			EstadosBanco.setEstado (3);
+			//Debug.Log ("Situacao Negativa");
 			ControlBank.setErros (Score.getErros());
 			//carregar proximo nivel, nesta situacao a fase nao foi positiva
 			SceneManager.LoadScene("Level2");
 
 		} else if (Score.getErros() == 0 && Score.getAcertos() == 3) {  //melhor caso, podemos pressupor que a criança, para este cenario, nao tem autismo
 
-			Debug.Log ("Situacao Positiva");
+			EstadosBanco.setEstado (3);
+			//Debug.Log ("Situacao Positiva");
 			ControlBank.setErros (Score.getErros());
 			SceneManager.LoadScene("Level2");
 
 		} else if (Score.getErros() != 0 && Score.getAcertos() == 3) { //tem erros mas nao o suficiente para mudar de fase
 
-			Debug.Log ("Situacao Media");
+			//Debug.Log ("Situacao Media");
 			ControlBank.setErros (Score.getErros());
 			SceneManager.LoadScene("Level2");
 		}
 
-		//Score.Print ();
-	
 	}
 
 	IEnumerator OnCollisionEnter2D(Collision2D col)  {
 
 		if (gameObject.name == "quadrado" && col.gameObject.name == "quadradoBuraco") {
-			
+
+			if (EstadosBanco.getEstado () == 2) {
+				Debug.Log ("Não setar mais");
+			} else {
+				EstadosBanco.setEstado (2);
+			}
+
 			gameObject.transform.position = new Vector2(-4.72f, 7.36f);
 			Score.incrementAcertos();
 		
@@ -70,6 +77,12 @@ public class ObjectBehavior : MonoBehaviour {
 
 		if (gameObject.name == "triangulo" && col.gameObject.name == "trianguloBuraco") {
 
+			if (EstadosBanco.getEstado () == 2) {
+				Debug.Log ("Não setar mais");
+			} else {
+				EstadosBanco.setEstado (2);
+			}
+
 			gameObject.transform.position = new Vector2(-4.72f, 7.36f);
 			Score.incrementAcertos();
 
@@ -86,6 +99,12 @@ public class ObjectBehavior : MonoBehaviour {
 		}
 
 		if (gameObject.name == "circulo" && col.gameObject.name == "circuloBuraco") {
+
+			if (EstadosBanco.getEstado () == 2) {
+				Debug.Log ("Não setar mais");
+			} else {
+				EstadosBanco.setEstado (2);
+			}
 
 			gameObject.transform.position = new Vector2(-4.72f, 7.36f);
 			Score.incrementAcertos();

@@ -43,7 +43,7 @@ public class Timer : MonoBehaviour {
 
 			if (Mathf.Round (seconds) <= 9) {
 
-				Debug.Log (minutes.ToString () + ":0" + seconds.ToString ("f0"));
+				//Debug.Log (minutes.ToString () + ":0" + seconds.ToString ("f0"));
 				time = minutes.ToString () + ":0" + seconds.ToString ("f0");
 
 			} else {
@@ -52,7 +52,7 @@ public class Timer : MonoBehaviour {
 			}
 
 			time = minutes.ToString () + ":" + seconds.ToString ("f0");
-			Debug.Log (minutes.ToString () + ":" + seconds.ToString ("f0"));
+			//Debug.Log (minutes.ToString () + ":" + seconds.ToString ("f0"));
 
 			ControlBank.setTempoResposta ("00:" + time); //formatar para o banco
 	

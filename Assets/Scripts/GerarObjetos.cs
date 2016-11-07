@@ -27,6 +27,7 @@ public class GerarObjetos : MonoBehaviour {
 		yield return new WaitForSeconds(5);
 		anim.SetBool ("TrocarCubo", true);
 		c = 1;
+		EstadosBanco.setEstado (5);
 		yield return new WaitForSeconds(5);
 		anim.SetBool ("TrocarUrso", true);
 		c = 2;
@@ -34,6 +35,7 @@ public class GerarObjetos : MonoBehaviour {
 		anim.SetBool ("TrocarCarro1", true);
 		c = 3;
 		yield return new WaitForSeconds(5);
+		EstadosBanco.setEstado (6);
 		anim.SetBool ("TrocarVideoGame", true);
 		c = 4;
 		yield return new WaitForSeconds(5);

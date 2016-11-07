@@ -11,6 +11,7 @@ public class MoveTouch : MonoBehaviour {
 	
 		speed = 0.04f;
 		verifica = false;
+
 	}
 	
 	// Update is called once per frame
@@ -19,6 +20,8 @@ public class MoveTouch : MonoBehaviour {
 		if (verifica == true) {
 
 			if (Input.touchCount == 1) {
+
+				EstadosBanco.setEstado (1);
 
 				transform.Translate (Input.touches [0].deltaPosition.x * speed,
 					Input.touches [0].deltaPosition.y * speed, 0);
@@ -42,13 +45,18 @@ public class MoveTouch : MonoBehaviour {
 	}
 
 	//para testar no computador
-	/*void OnMouseDrag()  {
+	void OnMouseDrag()  {
 		
 		float distance_to_screen = Camera.main.WorldToScreenPoint(gameObject.transform.position).z;
 		transform.position = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, distance_to_screen));
 
+		if (EstadosBanco.getEstado () == 1 || EstadosBanco.getEstado () == 2) {
+			Debug.Log ("Não setar mais");
+		} else {
+			EstadosBanco.setEstado (1);
+		}
 
-	}*/
+	}
 
 
 

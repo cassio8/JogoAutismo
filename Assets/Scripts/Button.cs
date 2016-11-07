@@ -7,7 +7,7 @@ public class Button : MonoBehaviour {
 
 	// Use this for initialization
 
-	public InputField name;
+	public Dropdown dd;
 
 	void Start () {
 	
@@ -20,10 +20,12 @@ public class Button : MonoBehaviour {
 
 	public void jogar()  {
 
-		Debug.Log (name.text);
+		Debug.Log (dd.captionText.text);
 		Handheld.Vibrate();
 
-		ControlBank.setNome (name.text);
+		ControlBank.setNome (dd.captionText.text);
+
+		EstadosBanco.setNomeSessao ();
 
 		SceneManager.LoadScene ("Level1");
 

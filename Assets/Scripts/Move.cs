@@ -19,12 +19,6 @@ public class Move : MonoBehaviour {
 		foreach (Touch touch in Input.touches) {
 			string texto = "";
 
-			/*texto += "ID: " + touch.fingerId + "\n";
-			texto += "TapCount: " + touch.tapCount + "\n";
-			texto += "phase: " + touch.phase.ToString() + "\n";
-			texto += "Pos X " + touch.position.x + "\n";
-			texto += "Pos Y " + touch.position.y + "\n";*/
-
 			int num = touch.fingerId;
 
 			GUI.Label (new Rect (0 + 130 * num, 0, 120, 100), texto);

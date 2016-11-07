@@ -34,6 +34,8 @@ public class InsertBank : MonoBehaviour  {
 		
 	void listar(MySqlConnection _conexao)  {
 
+		EstadosBanco.setEstado (7);
+
 		string nome, tempoResposta;
 		int erros, omissoes;
 
